@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&family=REM:wght@600&family=Signika:wght@300;400;500&display=swap");
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    h1 {
+      color: white;
+      font-size: 45px;
+      font-family: "REM", sans-serif;
+      letter-spacing: 2px;
+    }
+  }
+
+  .center {
+    display: flex;
+    .centerpoint {
+      color: white;
+      margin-right: 45px;
+
+      font-size: 20px;
+      background-color: aqua;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      cursor: pointer;
+    }
+    .cryptoName {
+      position: relative;
+      display: inline-block;
+      padding: 5px 40px 5px 10px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 13px;
+        left: 66px;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #ffffff transparent transparent transparent; // Adjust color as needed
+      }
+    }
+    .dropdownContent {
+      position: absolute;
+      background: white;
+      opacity: 0;
+      left: 46%;
+      top: 12%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+      span {
+        padding: 5px 45px 5px 5px;
+        cursor: pointer;
+      }
+    }
+
+    .dropdown:hover{
+      .dropdownContent{
+        opacity: 1;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    span {
+      margin-right: 30px;
+    }
+    .time {
+      color: white;
+      font-size: 20px;
+      background: transparent;
+      border: 4px solid aqua;
+      border-radius: 50%;
+      padding: 5px;
+      font-weight: 600;
+    }
+
+    .socialIcon {
+      color: white;
+      font-size: 20px;
+      background: #340b5a;
+      padding: 10px 15px;
+      font-weight: 600px;
+      border-radius: 4px;
+      font-weight: 500;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      cursor: pointer;
+    }
+
+    // ToggleSwitch.scss
+    .toggle-switch {
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 96px;
+        height: 34px;
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: 0.4s;
+          border-radius: 34px;
+
+          &:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 34px;
+          }
+        }
+
+        input:checked + .slider {
+          background-color: #2196f3;
+
+          &:before {
+            transform: translateX(26px);
+          }
+        }
+
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196f3;
+        }
+
+        &.round {
+          .slider {
+            border-radius: 34px;
+
+            &:before {
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &.checked {
+          .slider:before {
+            transform: translateX(26px);
+          }
+        }
+      }
+    }
+  }
+}

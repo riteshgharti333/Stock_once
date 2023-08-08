@@ -1,0 +1,73 @@
+.home {
+  margin-top: 30px;
+  .cryptoPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p:first-child {
+      color: white;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    h1 {
+      color: white;
+      font-size: 70px;
+      letter-spacing: 3px;
+      margin: 10px 0px;
+    }
+
+    p:last-child {
+      color: white;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .cryptoName {
+    margin: 10px 0px;
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 40px;
+    }
+  }
+
+  .table {
+    table {
+      border-collapse: collapse;
+      width: 100%;
+
+      th,
+      td {
+        padding: 8px;
+        text-align: center;
+        margin-right: 10px; /* Add right margin */
+      }
+
+      th {
+        color: white;
+        font-size: 25px;
+      }
+
+      tbody {
+        tr {
+          td {
+            color: white;
+            font-size: 30px;
+            font-weight: 600;
+            background: #4681f4;
+          }
+
+          td:first-child{
+            border-radius: 10px 0px 0px 10px;
+          }
+
+          td:last-child{
+            border-radius: 0px 10px 10px 0px;
+          }
+        }
+      }
+    }
+  }
+}
