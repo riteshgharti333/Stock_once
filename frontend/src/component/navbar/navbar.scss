@@ -53,13 +53,13 @@
       flex-direction: column;
       border-radius: 5px;
       span {
-        padding: 5px 45px 5px 5px;
+        padding: 10px 45px 5px 5px;
         cursor: pointer;
       }
     }
 
-    .dropdown:hover{
-      .dropdownContent{
+    .dropdown:hover {
+      .dropdownContent {
         opacity: 1;
       }
     }

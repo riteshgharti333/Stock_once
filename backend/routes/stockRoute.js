@@ -15,13 +15,11 @@ router.get("/get10stock", async (req, res) => {
     await Stock.deleteMany({});
     await Stock.insertMany(get10stcok);
 
-    res.json({ message: 'Top 10 tickers saved to the database.' });
-
+    res.json({ message: "Top 10 tickers saved to the database." });
   } catch (error) {
     res.status(500).json("failed to fetch");
   }
 });
-
 
 // GET ALL STOCKS
 
@@ -30,20 +28,22 @@ router.get("/stocks", async (req, res) => {
     const top10Stocks = await Stock.find();
     res.json(top10Stocks);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch data from the database." });
+    res
+      .status(500)
+      .json({ message: "Failed to fetch data from the database." });
   }
 });
 
-
-
 // GET SINGLE STOCK
 
-router.get("/stock/:id", async (req, res) => {
+router.get("/stocks/:id", async (req, res) => {
   try {
     const getSingStock = await Stock.findById(req.params.id);
     res.json(getSingStock);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch data from the database." });
+    res
+      .status(500)
+      .json({ message: "Failed to fetch data from the database." });
   }
 });
 

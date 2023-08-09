@@ -1,21 +1,20 @@
 import "./navbar.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
-import { useCrypto } from "../crptoContext/cryptoContect";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isChecked, setIsChecked] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const { setSelectedCrypto } = useCrypto();
   const [stocks, setStocks] = useState([]);
+
+  const [stockName, setStockName] = useState("BTC");
 
   useEffect(() => {
     const fetchAllStock = async () => {
       try {
         const res = await axios.get("http://localhost:8000/api/stocks");
-        console.log(res.data); // Log the fetched data to the console
         setStocks(res.data);
       } catch (error) {
         console.log(error);
@@ -28,7 +27,8 @@ const Navbar = () => {
     setIsChecked(!isChecked);
   };
 
-  const toggleDropdown = () => {
+  const toggleDropdown = (stock) => {
+    setStockName(stock.base_unit.toUpperCase());
     setIsDropdownOpen(!isDropdownOpen);
   };
 
@@ -43,21 +43,23 @@ const Navbar = () => {
         <span className="centerpoint currency">INR</span>
         <div className={`dropdown ${isDropdownOpen ? "show" : ""}`}>
           <span className="centerpoint cryptoName" onClick={toggleDropdown}>
-            BTC
+            {stockName}
           </span>
           <div className="dropdownContent">
-      
-          {stocks.map((stock) => (
-            <Link to={`/stock/${stocks._id}`} key={stocks._id}
-            onClick={() => {setSelectedCrypto(stock)}}>
-              <span>{stock.base_unit.toUpperCase()}</span>
+            {stocks.map((stock) => (
+              <Link
+                className="link"
+                to={`/stocks/${stock._id}`}
+                key={stock._id}
+                onClick={() => {
+                  toggleDropdown(stock);
+                }}
+              >
+                <span>{stock.base_unit.toUpperCase()}</span>
               </Link>
             ))}
-         
-           
           </div>
         </div>
-
 
         <span className="centerpoint buy">BUY BTC</span>
       </div>
